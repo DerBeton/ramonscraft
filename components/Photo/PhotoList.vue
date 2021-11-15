@@ -11,7 +11,7 @@
               
         <div v-for="(photo, photoIndex) in photos" :key="photoIndex" @click="index = photoIndex" class="photo-thumbnail-wrapper">
             <div class="photo-preview">
-                <img class="photo-thumbnail" :src="photo.thumb" />
+                <img class="photo-thumbnail" :alt="photo.title" :src="photo.thumb" />
             </div>
         </div>
 
@@ -68,7 +68,6 @@ h1 {
 }
 
 .photo-thumbnail {
-    transition: scale .4s ease-in-out;
     width: 100%;
     height: auto;
     object-fit: cover;
@@ -84,8 +83,17 @@ h1 {
     overflow: hidden;
 }
 
-.photo-thumbnail:hover {
-    scale: 1.05;
+/* Only for devices with a limited accuracy pointing device */
+
+@media (hover: hover) {
+    .photo-thumbnail {
+        transition: transform .4s ease-in-out, filter .4s ease-in-out;
+        filter: blur(1.5px);
+    }
+    .photo-thumbnail:hover {
+        transform: scale(1.05);
+        filter: blur(0);
+    }   
 }
 
 @media only screen and (max-width: 935px) {

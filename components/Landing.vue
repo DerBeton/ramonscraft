@@ -3,7 +3,7 @@
         <section id="landing-box">
             <img id="ramon-rund" src="@/assets/img/ramon-rund.png" alt="Bild von Ramon">
             <h1 class="landing-heading">Ramon's Craft 🛠️</h1>
-            <p>I am a web developer who loves to snap photos, make videos and work on some web projects. If you are interested in my work or have questions, feel free to ask me</p>
+            <p>I am a web developer who loves to snap photos, make videos and work on some web projects. If you are interested in my work or have questions, feel free to <a class="contact-me-link" :href="prefix+decoded">contact me</a></p>
         </section>
 
     
@@ -17,6 +17,12 @@
 
 <script>
 export default {
+    data() {
+        return {
+            decoded: Buffer.from('bWFpbEByYW1vbnNjcmFmdC5jaA==', 'base64'),
+            prefix: Buffer.from('bWFpbHRvOg==', 'base64')
+        }
+    },
     methods: {
         scrollToHeader() {
 
@@ -59,6 +65,22 @@ export default {
         font-size: 16px;
         font-weight: lighter;
     }
+
+    .contact-me-link {
+        color: #333;
+        text-decoration: none;
+        box-shadow: inset 0 -2px 0 rgba(4,138,191,0.5), 0 1.5px 0 rgba(4,138,191,0.5);
+        transition: box-shadow .4s;
+        overflow: hidden;
+    }
+
+    .contact-me-link:hover {
+        box-shadow: inset 0 -30px 0 rgba(4,138,191,0.5), 0 1.5px 0 rgba(4,138,191,0.5);
+    }
+
+a:hover {
+    
+}
 
     #arrow-down {
         position: absolute;

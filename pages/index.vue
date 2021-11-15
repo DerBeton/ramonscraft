@@ -21,17 +21,18 @@ export default {
   },
   asyncData(context) {
       return context.app.$storyapi.get("cdn/stories/", {
-          version: "draft",
+          version: "published",
           starts_with: "photos/"
       }).then(res => {
           // console.log(res.data);
+
           return { 
               loadedPhotos: res.data.stories.map(photo => {
               return {
                   title: photo.content.title,
                   description: photo.content.description,
-                  thumb: photo.content.thumb.filename,
-                  src: photo.content.src.filename
+                  thumb: photo.content.thumb.filename || photo.content.src.filename + '/m/288x288',
+                  src: photo.content.src.filename + '/m/'
               }
           })
         }
