@@ -134,8 +134,6 @@ h1 {
     }
 }
 
-/* Tutorial : https://codepen.io/GeorgePark/pen/VXrwOP */
-
 /* ####### responsive ####### */
 
 @media only screen and (max-width: 935px) {

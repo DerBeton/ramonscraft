@@ -116,8 +116,6 @@ h1 {
     }
 }
 
-/* Tutorial : https://codepen.io/GeorgePark/pen/VXrwOP */
-
 /* ####### responsive ####### */
 
 @media only screen and (max-width: 935px) {
@@ -127,11 +125,5 @@ h1 {
     column-gap: 5px;
   }
 }
-/*
-@media only screen and (max-width: 900px) {
-    .photo-list {
-        display: initial;
-    }
-}
-*/
+
 </style>

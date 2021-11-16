@@ -1,10 +1,12 @@
 <template>
     <div id="landing">
         <section id="landing-box">
-            <img id="ramonscraft-logo" src="/ramonscraft-logo-small.jpg" alt="Logo Ramonscraft">
+            <img id="ramonscraft-logo" src="ramonscraft-shield-logo.svg" alt="Logo Ramonscraft">
             <!---<img id="ramon-rund" src="@/assets/img/ramon-rund.png" alt="Bild von Ramon">-->
-            <h1 class="landing-heading">Ramon's Craft</h1>
-            <p>I am a web developer who loves to snap photos, make videos and work on some web projects. If you are interested in my work or have questions, feel free to <a class="contact-me-link" :href="prefix+decoded">contact me</a></p>
+            <h1 class="landing-heading">Ramon's <span class="h-craft">Craft</span></h1>
+            <p>Zum alli mini verschiedene "Crafts" a eim Ort z'poste, han ich mir die Website baue. Es chömed immer wieder neui Inhalt und d'Siite selber befindet sich laufen im Wandel. Es lohnt
+            sich also regelmässig drizluege!</br>
+            Bi froge chamer mich gern <a class="contact-me-link" :href="prefix+decoded">kontaktiere</a>.</p>
             <svg @click="scrollDown" id="arrow-down" xmlns="http://www.w3.org/2000/svg" width="34.218" height="20.556" viewBox="0 0 34.218 20.556">
                 <path id="Pfad_5" data-name="Pfad 5" d="M2159,826.52l16.527-18.383,16.2,18.383" transform="translate(2192.474 827.188) rotate(180)" fill="none" stroke="#048abf" stroke-width="2"/>
             </svg>
@@ -35,57 +37,62 @@ export default {
 </script>
 
 <style scoped>
-    #landing {
-        margin: 0;
-        padding: 0;
-        height: 60vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+#landing {
+    margin: 0;
+    padding: 0;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-    #landing-box {
-        max-width: 900px;
-        padding: 20px;
-        text-align: center;
-    }
+#landing-box {
+    max-width: 900px;
+    padding: 20px;
+    text-align: center;
+}
 
-    #ramon-rund {
-        margin: 20px;
-    }
+#ramon-rund {
+    margin: 20px;
+}
 
-    #ramonscraft-logo {
-        margin: 20px;
-        height: 220px;
-        transform: translateY(10px);
-    }
+#ramonscraft-logo {
+    margin-bottom: 10px;
+    margin: 20px;
+    height: 260px;
+}
 
-    .landing-heading {
-        margin: 0;
-        font-size: 60px;
-        font-weight: bolder;
-    }
+.landing-heading {
+    margin: 0;
+    font-size: 60px;
+    font-weight: bolder;
+}
 
-    p {
-        font-size: 16px;
-        font-weight: lighter;
-    }
+.h-craft {
+    color: #048ABF;
+}
 
-    .contact-me-link {
-        color: #333;
-        text-decoration: none;
-        box-shadow: inset 0 -2px 0 rgba(4,138,191,0.5), 0 1.5px 0 rgba(4,138,191,0.5);
-        transition: box-shadow .4s;
-        overflow: hidden;
-    }
+p {
+    font-size: 16px;
+    font-weight: lighter;
+    line-height: 1.4;
+}
 
-    .contact-me-link:hover {
-        box-shadow: inset 0 -30px 0 rgba(4,138,191,0.5), 0 1.5px 0 rgba(4,138,191,0.5);
-    }
+.contact-me-link {
+    color: #333;
+    text-decoration: none;
+    box-shadow: inset 0 -2px 0 rgba(4,138,191,0.5), 0 1.5px 0 rgba(4,138,191,0.5);
+    transition: box-shadow .4s;
+    overflow: hidden;
+}
+
+.contact-me-link:hover {
+    box-shadow: inset 0 -30px 0 rgba(4,138,191,0.5), 0 1.5px 0 rgba(4,138,191,0.5);
+}
 
 #arrow-down {
     margin-top: 30px;
-    display: none;
+    
     cursor: pointer;
 }
 
@@ -94,7 +101,7 @@ export default {
         font-size: 46px;
     }
     #ramonscraft-logo {
-        height: 160px;
+        height: 200px;
     }
 }
 

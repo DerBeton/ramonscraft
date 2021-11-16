@@ -58,21 +58,4 @@ h1 {
 .slide-enter-active, .slide-leave-active { transition: opacity .5s; }
 .slide-enter, .slide-leave-active { opacity: 0; }
 
-
-/*
-.slide-leave-active { 
-    transform: translateX(0);
-    transition: transform .5s linear; 
-}
-
-.slide-enter-active, .slide-leave-enter { 
-    transform: translateX(0);
-    transition: transform .5s linear; 
-}
-
-.slide-enter, .slide-leave-to { 
-    transform: translateX(-100%);
-    overflow: hidden;
-}
-*/
 </style>

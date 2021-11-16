@@ -1,17 +1,15 @@
 <template>
     <section class="homepage">
+        <h1>Sorry, aber du bisch do falsch glandet...</h1>
     </section>
 </template>
 
 <script>
-import Landing from '@/components/Landing.vue';
-import PhotoPage from '@/components/Photo/PhotoPage.vue'
 
 export default {
-    components: {
-        Landing,
-        PhotoPage
-    }
-} 
+    middleware({redirect}) {
+        return redirect('/photo')
+      }
+}
 
 </script>
