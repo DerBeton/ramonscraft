@@ -1,17 +1,20 @@
 <template>
-    <section class="photo-list">
+    <section class="video-list">
 
         <CoolLightBox 
-        :items="photos" 
+        :items="videos" 
         :index="index"
         :slideshow="false"
         :thumbnail="false"
         @close="index = null">
         </CoolLightBox>
               
-        <div v-for="(photo, photoIndex) in photos" :key="photoIndex" @click="index = photoIndex" class="photo-thumbnail-wrapper">
-            <div class="photo-preview">
-                <img class="photo-thumbnail" :alt="photo.title" :src="photo.thumb" />
+        <div v-for="(video, videoIndex) in videos" :key="videoIndex" @click="index = videoIndex" class="video-thumbnail-wrapper">
+            <div class="video-preview">
+                <img class="video-thumbnail" :alt="video.title" :src="video.thumb" />
+            </div>
+            <div class="video-description">
+                <h3>{{ video.title }}</h3>
             </div>
         </div>
 
@@ -28,7 +31,7 @@ export default {
         CoolLightBox
     },
     props: {
-        photos: {
+        videos: {
             type: Array,
             required: true
         }
@@ -46,10 +49,10 @@ export default {
 <style scoped>
 
 .images {
-    cursor: pointer;
-    width: 300px;
-    height: 300px;
-    margin: 0 auto;
+  cursor: pointer;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
 }
 
 h1 {
@@ -57,7 +60,7 @@ h1 {
     text-align: center;
 }
 
-.photo-list {
+.video-list {
     max-width: 900px;
     margin: 20px auto 20px auto;
     display: flex;
@@ -67,13 +70,18 @@ h1 {
     justify-content: center;
 }
 
-.photo-thumbnail {
+.video-thumbnail {
     width: 100%;
     height: auto;
     object-fit: cover;
 }
 
-.photo-thumbnail-wrapper {
+.video-preview {
+    max-height: 162px;
+    overflow: hidden;
+}
+
+.video-thumbnail-wrapper {
     max-width: 288px;
     max-height: 288px;
     float: left;
@@ -83,21 +91,26 @@ h1 {
     overflow: hidden;
 }
 
+.video-description h3 {
+    display: none;
+    color: #048ABF;
+    margin-top: 5px;
+    font-weight: 500;
+}
+
 /* Only for devices with a limited accuracy pointing device */
 
-@media (hover: hover) and (pointer: fine) {
-    .photo-thumbnail {
+@media (hover: hover) {
+    .video-thumbnail {
         transition: transform .4s ease-in-out, filter .4s ease-in-out;
-        filter: blur(1.5px);
     }
-    .photo-thumbnail:hover {
+    .video-thumbnail:hover {
         transform: scale(1.05);
-        filter: blur(0);
     }   
 }
 
 @media only screen and (max-width: 935px) {
-    .photo-thumbnail-wrapper {
+    .video-thumbnail-wrapper {
         width: 32%;
         float: left;
         position: relative;
@@ -105,14 +118,19 @@ h1 {
         cursor: pointer;
         overflow: hidden;
     }
-    .photo-thumbnail {
+    .video-thumbnail {
     height: auto;
     }
-    .photo-preview {
+    .video-preview {
         height: 100%;
         width: 100%;
         display: block;
         margin-bottom: -5px;
+    }
+    .video-list {
+        width: 95%;
+        row-gap: 5px;
+        column-gap: 5px;
     }
 }
 
@@ -121,17 +139,35 @@ h1 {
 /* ####### responsive ####### */
 
 @media only screen and (max-width: 935px) {
-  .photo-list {
-    width: 95%;
-    row-gap: 5px;
-    column-gap: 5px;
-  }
-}
-/*
-@media only screen and (max-width: 900px) {
-    .photo-list {
-        display: initial;
+    .video-thumbnail-wrapper {
+        width: 32%;
+        float: left;
+        position: relative;
+        color: #fff;
+        cursor: pointer;
+        overflow: hidden;
+    }
+    .video-thumbnail {
+    height: auto;
+    }
+    .video-preview {
+        height: 100%;
+        width: 100%;
+        display: block;
+        margin-bottom: -5px;
+    }
+    .video-list {
+        width: 95%;
+        row-gap: 5px;
+        column-gap: 5px;
     }
 }
-*/
+
+
+@media only screen and (max-width: 620px) {
+    .video-thumbnail-wrapper {
+        width: 48%;
+    }
+}
+
 </style>
