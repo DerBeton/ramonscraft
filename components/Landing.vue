@@ -92,7 +92,7 @@ p {
 
 #arrow-down {
     margin-top: 30px;
-    
+    display: none;
     cursor: pointer;
 }
 
@@ -101,6 +101,7 @@ p {
         font-size: 46px;
     }
     #ramonscraft-logo {
+        margin-top: 40px;
         height: 200px;
     }
 }
