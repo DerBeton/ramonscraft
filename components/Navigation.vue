@@ -47,4 +47,11 @@ export default {
   opacity: 1;
 }
 
+
+@media only screen and (max-width: 620px) {
+    .navigation {
+        margin-top: 10px;
+    }
+}
+
 </style>

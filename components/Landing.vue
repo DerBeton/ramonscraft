@@ -4,8 +4,8 @@
             <img id="ramonscraft-logo" src="ramonscraft-shield-logo.svg" alt="Logo Ramonscraft">
             <!---<img id="ramon-rund" src="@/assets/img/ramon-rund.png" alt="Bild von Ramon">-->
             <h1 class="landing-heading">Ramon's <span class="h-craft">Craft</span></h1>
-            <p>Zum alli mini verschiedene "Crafts" a eim Ort z'poste, han ich mir die Website baue. Es chömed immer wieder neui Inhalt und d'Siite selber befindet sich laufen im Wandel. Es lohnt
-            sich also regelmässig drizluege!</br>
+            <p>Zum alli mini verschiedene "Crafts" a eim Ort z'sammle, han ich mir die Website baue. Es chömed immer wieder neui Inhalt und d'Site selber befindet sich laufend im Wandel. Es lohnt
+            sich also regelmässig drizluege! 😊</br>
             Bi froge chamer mich gern <a class="contact-me-link" :href="prefix+decoded">kontaktiere</a>.</p>
             <svg @click="scrollDown" id="arrow-down" xmlns="http://www.w3.org/2000/svg" width="34.218" height="20.556" viewBox="0 0 34.218 20.556">
                 <path id="Pfad_5" data-name="Pfad 5" d="M2159,826.52l16.527-18.383,16.2,18.383" transform="translate(2192.474 827.188) rotate(180)" fill="none" stroke="#048abf" stroke-width="2"/>
