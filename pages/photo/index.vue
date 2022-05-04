@@ -28,7 +28,7 @@ export default {
               return {
                   title: photo.content.title,
                   description: photo.content.description,
-                  thumb: photo.content.thumb.filename || photo.content.src.filename + '/m/293x293',
+                  thumb: photo.content.thumb.filename || photo.content.src.filename + '/m/288x288',
                   src: photo.content.src.filename + '/m/'
               }
           })

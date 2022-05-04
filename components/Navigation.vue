@@ -3,7 +3,6 @@
       <ul class="nav-list">
         <li class="nav-item"><nuxt-link to="/photo">Fotos</nuxt-link></li>
         <li class="nav-item"><nuxt-link to="/video">Videos</nuxt-link></li>
-        <li class="nav-item"><nuxt-link to="/blog">Blog</nuxt-link></li>
       </ul>
     </div>
 </template>
@@ -20,7 +19,7 @@ export default {
 .navigation {
     display: flex;
     max-width: 900px;
-    margin: 20px auto;
+    margin: auto;
     gap: 20px;
 }
 
@@ -41,11 +40,6 @@ export default {
 .nav-item a {
     color: #333333;
     opacity: 0.75;
-}
-
-.nav-item a:hover {
-    color: #048ABF;
-    opacity: 1;
 }
 
 .nav-item a.nuxt-link-active {

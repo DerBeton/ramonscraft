@@ -89,6 +89,7 @@ h2 {
 }
 
 .article-thumbnail-wrapper {
+    width: 100%;
     position: relative;
     color: #fff;
     cursor: pointer;
@@ -119,7 +120,11 @@ h2 {
     }   
 }
 
+/*
+
 @media only screen and (max-width: 935px) {
+
+
     .article-thumbnail-wrapper {
         width: 32%;
         float: left;
@@ -139,6 +144,7 @@ h2 {
     }
 }
 
+*/
 /* ####### responsive ####### */
 
 @media only screen and (max-width: 935px) {
