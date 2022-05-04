@@ -1,15 +1,15 @@
 <template>
     <div class="main-wrapper">
-        <PhotoList :photos="loadedPhotos" />
+        <BlogList :articles="loadedArticles" />
     </div>
 </template>
 
 <script>
-import PhotoList from '@/components/Photo/PhotoList.vue';
+import BlogList from '@/components/Blog/BlogList.vue';
 
 export default {
   components: {
-    PhotoList
+    BlogList
   },
   transition: 'slide',
   scrollToTop: false,
@@ -19,17 +19,18 @@ export default {
   asyncData(context) {
       return context.app.$storyapi.get("cdn/stories/", {
           version: "published",
-          starts_with: "photos/"
+          starts_with: "blog/"
       }).then(res => {
-          // console.log(res.data);
-
+          
           return { 
-              loadedPhotos: res.data.stories.map(photo => {
+              loadedArticles: res.data.stories.map(article => {
               return {
-                  title: photo.content.title,
-                  description: photo.content.description,
-                  thumb: photo.content.thumb.filename || photo.content.src.filename + '/m/293x293',
-                  src: photo.content.src.filename + '/m/'
+                  title: article.content.title,
+                  intro: article.content.intro,
+                  thumb: article.content.image.filename + '/m/300x185',
+                  src: article.content.image.filename + '/m/',
+                  slug: article.slug,
+                  link: 'blog/' + article.slug
               }
           })
         }
@@ -37,7 +38,7 @@ export default {
   },
   computed: {
       redirectToPhotos() {
-          this.$router.push('/photo');
+          this.$router.push('/blog');
     }
   }
 }

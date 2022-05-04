@@ -8,14 +8,19 @@
         :thumbnail="false"
         @close="index = null">
         </CoolLightBox>
-              
-        <div v-for="(video, videoIndex) in videos" :key="videoIndex" @click="index = videoIndex" class="video-thumbnail-wrapper">
-            <div class="video-preview">
-                <img class="video-thumbnail" :alt="video.title" :src="video.thumb" />
+
+        <div class="videos-wrapper">
+
+            <div v-for="(video, videoIndex) in videos" :key="videoIndex" @click="index = videoIndex" class="video-thumbnail-wrapper">
+                <div class="video-preview">
+                    <img class="video-thumbnail" :alt="video.title" :src="video.thumb" />
+                </div>
+                <div class="video-description">
+                    <h3>{{ video.title }}</h3>
+                </div>
+
             </div>
-            <div class="video-description">
-                <h3>{{ video.title }}</h3>
-            </div>
+
         </div>
 
 
@@ -47,43 +52,44 @@ export default {
 </script>
 
 <style scoped>
-
-.images {
-  cursor: pointer;
-  width: 300px;
-  height: 300px;
-  margin: 0 auto;
-}
-
 h1 {
     width: 100%;
     text-align: center;
 }
 
+.videos-wrapper {
+    /* margin: 20px auto 20px auto; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: -5px; 
+}
+
 .video-list {
     max-width: 900px;
     margin: 20px auto 20px auto;
-    display: flex;
-    flex-wrap: wrap;
-    row-gap: 10px;
-    column-gap: 10px;
-    justify-content: center;
 }
 
 .video-thumbnail {
     width: 100%;
     height: auto;
     object-fit: cover;
+    transition: transform .4s ease-in-out, filter .4s ease-in-out;
+    transform-origin: center;
 }
+
+.video-thumbnail:hover {
+        transform: scale(1.05);
+}  
 
 .video-preview {
     max-height: 162px;
+    max-width: 293px;
     overflow: hidden;
 }
 
 .video-thumbnail-wrapper {
-    max-width: 288px;
-    max-height: 288px;
+    padding: 5px;
     float: left;
     position: relative;
     color: #fff;

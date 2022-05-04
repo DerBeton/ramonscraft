@@ -40,7 +40,7 @@ export default {
 #landing {
     margin: 0;
     padding: 0;
-    height: 60vh;
+    height: 55vh;
     display: flex;
     justify-content: center;
     align-items: center;

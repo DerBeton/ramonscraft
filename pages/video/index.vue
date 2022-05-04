@@ -29,7 +29,7 @@ export default {
               return {
                   title: video.content.title,
                   description: video.content.description,
-                  thumb: video.content.thumb.filename + '/m/288x0',
+                  thumb: video.content.thumb.filename + '/m/293x0',
                   src: video.content.src.url
               }
           })

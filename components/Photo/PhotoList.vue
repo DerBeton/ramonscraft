@@ -9,12 +9,15 @@
         @close="index = null">
         </CoolLightBox>
               
-        <div v-for="(photo, photoIndex) in photos" :key="photoIndex" @click="index = photoIndex" class="photo-thumbnail-wrapper">
-            <div class="photo-preview">
-                <img class="photo-thumbnail" :alt="photo.title" :src="photo.thumb" />
-            </div>
-        </div>
+        <div class="photos-wrapper">
 
+            <div v-for="(photo, photoIndex) in photos" :key="photoIndex" @click="index = photoIndex" class="photo-thumbnail-wrapper">
+                <div class="photo-preview">
+                    <img class="photo-thumbnail" :alt="photo.title" :src="photo.thumb" />
+                </div>
+            </div>
+
+        </div>
 
     </section>
 </template>
@@ -45,41 +48,50 @@ export default {
 
 <style scoped>
 
-.images {
-    cursor: pointer;
-    width: 300px;
-    height: 300px;
-    margin: 0 auto;
-}
-
 h1 {
     width: 100%;
     text-align: center;
 }
 
+.photos-wrapper {
+    /* margin: 20px auto 20px auto; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: -5px; 
+}
+
 .photo-list {
     max-width: 900px;
     margin: 20px auto 20px auto;
-    display: flex;
-    flex-wrap: wrap;
-    row-gap: 10px;
-    column-gap: 10px;
-    justify-content: center;
 }
 
 .photo-thumbnail {
     width: 100%;
     height: auto;
     object-fit: cover;
+    transition: transform .4s ease-in-out, filter .4s ease-in-out;
+    transform-origin: center;
 }
 
+.photo-thumbnail:hover {
+        transform: scale(1.05);
+}   
+
+
+
 .photo-thumbnail-wrapper {
-    max-width: 288px;
-    max-height: 288px;
+    padding: 5px;
     float: left;
     position: relative;
     color: #fff;
     cursor: pointer;
+    overflow: hidden;
+}
+
+.photo-preview {
+    max-width: 293px;
+    max-height: 293px;
     overflow: hidden;
 }
 
@@ -88,11 +100,11 @@ h1 {
 @media (hover: hover) and (pointer: fine) {
     .photo-thumbnail {
         transition: transform .4s ease-in-out, filter .4s ease-in-out;
-        filter: blur(1.5px);
+        /*filter: blur(1.5px);*/
     }
     .photo-thumbnail:hover {
         transform: scale(1.05);
-        filter: blur(0);
+        /*filter: blur(0);*/
     }   
 }
 

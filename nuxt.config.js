@@ -1,9 +1,9 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'ramonscraft',
+    title: "Ramon's Craft",
     htmlAttrs: {
-      lang: 'en'
+      lang: 'de'
     },
     meta: [
       { charset: 'utf-8' },
@@ -36,7 +36,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    ['storyblok-nuxt', {accessToken: 'kFKSXLpn7Acpc5oju8pU0wtt', cacheProvider: 'memory'}],
+    ['storyblok-nuxt', {accessToken: 'tulT6gQgiEBkCfNsr3KGcAtt', cacheProvider: 'memory'}],
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
