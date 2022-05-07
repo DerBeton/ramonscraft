@@ -1,7 +1,7 @@
 <template>
     <div id="landing">
         <section id="landing-box">
-            <img id="ramonscraft-logo" src="ramonscraft-shield-logo.svg" alt="Logo Ramonscraft">
+            <nuxt-link to="/"><img id="ramonscraft-logo" src="~/assets/img/logos/ramonscraft-shield-logo.svg" alt="Logo Ramonscraft"></nuxt-link>
             <!---<img id="ramon-rund" src="@/assets/img/ramon-rund.png" alt="Bild von Ramon">-->
             <h1 class="landing-heading">Ramon's <span class="h-craft">Craft</span></h1>
             <p>Zum alli mini verschiedene "Crafts" a eim Ort z'sammle, han ich mir die Website baue. Es chömed immer wieder neui Inhalt und d'Site selber befindet sich laufend im Wandel. Es lohnt
@@ -40,7 +40,6 @@ export default {
 #landing {
     margin: 0;
     padding: 0;
-    height: 60vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -48,7 +47,7 @@ export default {
 
 #landing-box {
     max-width: 900px;
-    padding: 20px;
+    padding: 50px 20px 0;
     text-align: center;
 }
 
@@ -97,6 +96,9 @@ p {
 }
 
 @media only screen and (max-width: 620px) {
+    #landing-box {
+        padding-top: 0;
+    }
     .landing-heading {
         font-size: 46px;
     }

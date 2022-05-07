@@ -1,8 +1,9 @@
 <template>
-    <div class="navigation">
+    <div id="navigation" class="navigation">
       <ul class="nav-list">
         <li class="nav-item"><nuxt-link to="/photo">Fotos</nuxt-link></li>
         <li class="nav-item"><nuxt-link to="/video">Videos</nuxt-link></li>
+        <li class="nav-item"><nuxt-link to="/blog">Blog</nuxt-link></li>
       </ul>
     </div>
 </template>
@@ -19,8 +20,10 @@ export default {
 .navigation {
     display: flex;
     max-width: 900px;
-    margin: auto;
+    margin: 10px auto;
     gap: 20px;
+    position: sticky;
+    top: 0;
 }
 
 .nav-list {

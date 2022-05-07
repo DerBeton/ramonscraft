@@ -11,6 +11,9 @@
                     </div>
 
                     <div class="article-info">
+                        <div class="article-tag-wrapper">
+                            <span v-for="(tag, tagIndex) in article.tags" :key="tagIndex" class="article-tags">{{ tag + ' ' }}</span>
+                        </div>
                         <h2 class="article-title">{{ article.title }}</h2>
                         <p class="article-teaser">{{ article.intro }}</p>
                     </div>
@@ -42,22 +45,6 @@ export default {
 
 <style scoped>
 
-.article {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    padding: 5px;
-    width: 33.3%;
-}
-
-.articles-wrapper {
-    /* margin: 20px auto 20px auto; */
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    margin: -5x;
-}
-
 h1 {
     width: 100%;
     text-align: center;
@@ -72,87 +59,100 @@ h2 {
     margin: 20px auto;
 }
 
-.article-thumbnail {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    transition: transform .4s ease-in-out, filter .4s ease-in-out;
-    transform-origin: center;
+.articles-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: -5x;
 }
 
-.article-thumbnail:hover {
-    transform: scale(1.05);
-}   
-
-.article-preview {
-    max-height: 185px;
+.article {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 5px;
+    width: 33.3%;
 }
 
 .article-thumbnail-wrapper {
-    width: 100%;
     position: relative;
     color: #fff;
     cursor: pointer;
     overflow: hidden;
 }
 
+.article-thumbnail {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+    transition: transform .4s ease-in-out, filter .4s ease-in-out;
+    transform-origin: center;
+} 
+
+.article:hover .article-thumbnail {
+    transform: scale(1.05);
+}
+
+.article-preview {
+    position: relative;
+    overflow: hidden;
+}
+
+.article-preview::before {
+    content: "";
+    display: block;
+    padding-top: calc(100% / 16 * 9);
+}
+
+.article-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.article-tag-wrapper {
+    margin-top: 10px;
+}
+
+.article-tags {
+    font-size: 14px;
+    color: #333;
+}
+
 .article-title {
     margin: 6px 0;
+    font-weight: 500;
 }
 
 .article-teaser {
-    margin: 6px 0;
+    margin: 0;
     color: #333;
     font-weight: lighter;
 }
 
-
-/* Only for devices with a limited accuracy pointing device */
-
-@media (hover: hover) and (pointer: fine) {
-    .article-thumbnail {
-        transition: transform .4s ease-in-out, filter .4s ease-in-out;
-        /*filter: blur(1.5px);*/
-    }
-    .article-thumbnail:hover {
-        transform: scale(1.05);
-        /*filter: blur(0);*/
-    }   
-}
-
-/*
-
-@media only screen and (max-width: 935px) {
-
-
-    .article-thumbnail-wrapper {
-        width: 32%;
-        float: left;
-        position: relative;
-        color: #fff;
-        cursor: pointer;
-        overflow: hidden;
-    }
-    .article-thumbnail {
-    height: auto;
-    }
-    .article-preview {
-        height: 100%;
-        width: 100%;
-        display: block;
-        margin-bottom: -5px;
-    }
-}
-
-*/
 /* ####### responsive ####### */
 
 @media only screen and (max-width: 935px) {
-  .article-list {
-    width: 95%;
-    row-gap: 5px;
-    column-gap: 5px;
-  }
+    .blog-wrapper {
+        margin: -2px; 
+    }
+
+    .blog-thumbnail-wrapper {
+        padding: 2px;
+    }
+
+    .article {
+        width: 50%;
+    }
+
+}
+
+
+@media only screen and (max-width: 500px) {
+    .article {
+        width: 100%;
+    }
+
 }
 
 </style>

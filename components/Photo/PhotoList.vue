@@ -9,12 +9,15 @@
         @close="index = null">
         </CoolLightBox>
               
-        <div v-for="(photo, photoIndex) in photos" :key="photoIndex" @click="index = photoIndex" class="photo-thumbnail-wrapper">
-            <div class="photo-preview">
-                <img class="photo-thumbnail" :alt="photo.title" :src="photo.thumb" />
-            </div>
-        </div>
+        <div class="photo-wrapper">
 
+            <div v-for="(photo, photoIndex) in photos" :key="photoIndex" @click="index = photoIndex" class="photo-thumbnail-wrapper">
+                <div class="photo-preview">
+                    <img class="photo-thumbnail" :alt="photo.title" :src="photo.thumb" />
+                </div>
+            </div>
+
+        </div>
 
     </section>
 </template>
@@ -45,13 +48,6 @@ export default {
 
 <style scoped>
 
-.images {
-    cursor: pointer;
-    width: 300px;
-    height: 300px;
-    margin: 0 auto;
-}
-
 h1 {
     width: 100%;
     text-align: center;
@@ -60,22 +56,18 @@ h1 {
 .photo-list {
     max-width: 900px;
     margin: 20px auto 20px auto;
-    display: flex;
-    flex-wrap: wrap;
-    row-gap: 10px;
-    column-gap: 10px;
-    justify-content: center;
 }
 
-.photo-thumbnail {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
+.photo-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: -5px; 
 }
 
 .photo-thumbnail-wrapper {
-    max-width: 288px;
-    max-height: 288px;
+    width: 33.3%;
+    padding: 5px;
     float: left;
     position: relative;
     color: #fff;
@@ -83,47 +75,41 @@ h1 {
     overflow: hidden;
 }
 
-/* Only for devices with a limited accuracy pointing device */
-
-@media (hover: hover) and (pointer: fine) {
-    .photo-thumbnail {
-        transition: transform .4s ease-in-out, filter .4s ease-in-out;
-        filter: blur(1.5px);
-    }
-    .photo-thumbnail:hover {
-        transform: scale(1.05);
-        filter: blur(0);
-    }   
+.photo-preview {
+    position: relative;
+    overflow: hidden;
 }
 
-@media only screen and (max-width: 935px) {
-    .photo-thumbnail-wrapper {
-        width: 32%;
-        float: left;
-        position: relative;
-        color: #fff;
-        cursor: pointer;
-        overflow: hidden;
-    }
-    .photo-thumbnail {
-    height: auto;
-    }
-    .photo-preview {
-        height: 100%;
-        width: 100%;
-        display: block;
-        margin-bottom: -5px;
-    }
+.photo-preview::before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+
+.photo-thumbnail {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+    transition: transform .4s ease-in-out, filter .4s ease-in-out;
+    transform-origin: center;
+}  
+
+.photo-thumbnail:hover {
+    transform: scale(1.05);
 }
 
 /* ####### responsive ####### */
 
 @media only screen and (max-width: 935px) {
-  .photo-list {
-    width: 95%;
-    row-gap: 5px;
-    column-gap: 5px;
-  }
+    .photo-wrapper {
+        margin: -2px; 
+    }
+
+    .photo-thumbnail-wrapper {
+        padding: 2px;
+    }
+
 }
 
 </style>

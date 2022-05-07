@@ -20,13 +20,13 @@ export default {
       return context.app.$storyapi.get("cdn/stories/", {
           version: "published",
           starts_with: "blog/"
-      }).then(res => {
-          
+      }).then(res => {          
           return { 
               loadedArticles: res.data.stories.map(article => {
               return {
                   title: article.content.title,
                   intro: article.content.intro,
+                  tags: article.tag_list,
                   thumb: article.content.image.filename + '/m/300x185',
                   src: article.content.image.filename + '/m/',
                   slug: article.slug,
@@ -47,7 +47,7 @@ export default {
 <style scoped>
 
 .main-wrapper {
-    margin: 0;
+    margin: 0 10px;
     min-height: calc(25vh + 70px);
 }
 

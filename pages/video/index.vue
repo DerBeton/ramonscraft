@@ -29,7 +29,7 @@ export default {
               return {
                   title: video.content.title,
                   description: video.content.description,
-                  thumb: video.content.thumb.filename + '/m/288x0',
+                  thumb: video.content.thumb.filename + '/m/320x0',
                   src: video.content.src.url
               }
           })
@@ -42,7 +42,7 @@ export default {
 <style scoped>
 
 .main-wrapper {
-    margin: 0;
+    margin: 0 10px;
     min-height: 25vh;
 }
 

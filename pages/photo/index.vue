@@ -28,7 +28,7 @@ export default {
               return {
                   title: photo.content.title,
                   description: photo.content.description,
-                  thumb: photo.content.thumb.filename || photo.content.src.filename + '/m/288x288',
+                  thumb: photo.content.thumb.filename || photo.content.src.filename + '/m/320x320',
                   src: photo.content.src.filename + '/m/'
               }
           })
@@ -46,7 +46,7 @@ export default {
 <style scoped>
 
 .main-wrapper {
-    margin: 0;
+    margin: 0 10px;
     min-height: calc(25vh + 70px);
 }
 

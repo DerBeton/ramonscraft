@@ -1,5 +1,5 @@
 <template>
-    <section class="articledetail">
+    <section id="articledetail" class="articledetail">
         <div class="main-wrapper">
             <img @click="log" :src="image" alt="" class="article-mainimage">
             <div v-html="text" class="article-text"></div>
@@ -12,11 +12,25 @@
 export default {
   transition: 'slide',
   scrollToTop: false,
-  layout: 'article',
+  layout: 'default',
+  mounted() {
+    this.scrollIntoView();
+  },
   methods: {
-      log() {
-          console.log(this.text);
-      }
+    log() {
+        // console.log(this.text);
+    },
+    scrollIntoView() {
+        var element = document.getElementById('navigation');
+        var headerOffset = 10;
+        var elementPosition = element.getBoundingClientRect().top;
+        var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+        });
+
+    }
   },
   asyncData(context) {
       return context.app.$storyapi.get("cdn/stories/blog/" + context.params.slug, {
@@ -31,7 +45,7 @@ export default {
         }
 
       })
-  },
+  }
 }
 </script>
 
@@ -47,14 +61,15 @@ export default {
 }
 
 .main-wrapper {
-    margin: 0;
+    margin: 0 10px 50px;
     min-height: calc(25vh + 70px);
 }
 
 h1 {
-    margin: 20px 0;
+    margin: 15px 0 10px;
     font-size: 36px;
     width: 100%;
+    font-weight: 500;
 }
 
 h2 {
@@ -70,6 +85,12 @@ h2 {
 
 .article-text img {
     max-width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+    h1 {
+        font-size: 26px;
+    }
 }
 
 .slide-enter-active, .slide-leave-active { transition: opacity .5s; }
